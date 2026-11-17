@@ -416,6 +416,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     communityScalingText.innerHTML = `If 100 families in your neighborhood adopt these routines, your community will abate <strong>${impact.annualized_community_co2_savings_kg.toLocaleString()} kg of CO2e</strong> annually while eliminating tens of millions of micrograms of inhaled toxins.`;
 
+    // Screen reader dynamic status announcement (WCAG 4.1.3 AA)
+    announceA11y(`Personalized smog action plan updated for ${snap.city}. Current AQI is ${snap.aqi}, ${snap.severity}. Daily PM2.5 avoidance: ${impact.daily_pm25_avoided_micrograms} micrograms.`);
+
     // Programmatic focus management for keyboard and screen-reader navigation
     const summaryCard = document.getElementById('ai-summary-card');
     if (summaryCard) {
@@ -526,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     chatMessages.appendChild(msgDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
+    announceA11y(`${sender}: ${text}`);
     return id;
   }
 
@@ -534,6 +538,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (msgDiv) {
       msgDiv.querySelector('.msg-content').innerHTML = newHtml;
       chatMessages.scrollTop = chatMessages.scrollHeight;
+      const cleanText = newHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+      announceA11y(`AeroSanctuary AI: ${cleanText}`);
+    }
+  }
+
+  function announceA11y(message) {
+    const announcer = document.getElementById('a11y-announcer');
+    if (announcer) {
+      announcer.textContent = '';
+      setTimeout(() => {
+        announcer.textContent = message;
+      }, 50);
     }
   }
 

@@ -41,6 +41,8 @@
 
   <!-- Main Content Landmark -->
   <main id="main-content" class="container main-layout" role="main">
+    <!-- Accessible Screen Reader Status Announcer (WCAG 4.1.3 Status Messages) -->
+    <div id="a11y-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <!-- Hero / Live Smog Alert Banner -->
     <section id="aqi-monitor" class="hero-section" role="region" aria-labelledby="hero-heading">
@@ -250,7 +252,7 @@
           </h3>
           <p class="card-subtitle">Ask questions about infant safety, DIY air purifiers, or mask filtration standards.</p>
 
-          <div id="chat-messages" class="chat-thread" role="log" aria-live="polite" aria-label="Chat conversation history">
+          <div id="chat-messages" class="chat-thread" role="log" aria-live="polite" aria-atomic="false" aria-relevant="additions text" aria-label="Chat conversation history">
             <div class="chat-msg assistant">
               <span class="sender-name">AeroSanctuary AI</span>
               <p>Hello! I am your urban air quality and winter smog advisor. Ask me anything about tailoring low-emission routines, building a DIY Corsi-Rosenthal filter, or protecting vulnerable family members during thermal inversion peaks.</p>
