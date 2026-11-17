@@ -233,9 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form validation with accessible error association
     if (!location) {
       if (errorBox) {
+        errorBox.className = 'form-error-msg';
+        errorBox.setAttribute('role', 'alert');
         errorBox.textContent = 'Please select or provide a valid metro city location.';
-        errorBox.classList.remove('hidden');
-        errorBox.style.display = 'block';
       }
       locationInput.setAttribute('aria-invalid', 'true');
       locationInput.focus();
@@ -244,9 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isNaN(km) || km < 0 || km > 200) {
       if (errorBox) {
+        errorBox.className = 'form-error-msg';
+        errorBox.setAttribute('role', 'alert');
         errorBox.textContent = 'Please enter a valid roundtrip commute distance between 0 and 200 km.';
-        errorBox.classList.remove('hidden');
-        errorBox.style.display = 'block';
       }
       kmInput.setAttribute('aria-invalid', 'true');
       kmInput.focus();
@@ -255,9 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clear validation errors
     if (errorBox) {
-      errorBox.textContent = '';
-      errorBox.classList.add('hidden');
-      errorBox.style.display = 'none';
+      errorBox.className = 'form-help-text';
+      errorBox.setAttribute('role', 'status');
+      errorBox.textContent = 'Provide your metro location and commute distance to calculate personalized air defense recommendations.';
     }
     locationInput.setAttribute('aria-invalid', 'false');
     kmInput.setAttribute('aria-invalid', 'false');
