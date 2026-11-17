@@ -221,10 +221,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   async function triggerPlanGeneration() {
-    const location = document.getElementById('input-location').value;
+    const locationInput = document.getElementById('input-location');
+    const kmInput = document.getElementById('input-km');
+    const errorBox = document.getElementById('profile-form-error');
+
+    const location = locationInput.value.trim();
     const household = document.getElementById('input-household').value;
     const commute = document.getElementById('input-commute').value;
-    const km = parseFloat(document.getElementById('input-km').value) || 18.0;
+    const km = parseFloat(kmInput.value);
+
+    // Form validation with accessible error association
+    if (!location) {
+      if (errorBox) {
+        errorBox.textContent = 'Please select or provide a valid metro city location.';
+        errorBox.style.display = 'block';
+      }
+      locationInput.setAttribute('aria-invalid', 'true');
+      locationInput.focus();
+      return;
+    }
+
+    if (isNaN(km) || km < 0 || km > 200) {
+      if (errorBox) {
+        errorBox.textContent = 'Please enter a valid roundtrip commute distance between 0 and 200 km.';
+        errorBox.style.display = 'block';
+      }
+      kmInput.setAttribute('aria-invalid', 'true');
+      kmInput.focus();
+      return;
+    }
+
+    // Clear validation errors
+    if (errorBox) {
+      errorBox.textContent = '';
+      errorBox.style.display = 'none';
+    }
+    locationInput.setAttribute('aria-invalid', 'false');
+    kmInput.setAttribute('aria-invalid', 'false');
 
     const payload = {
       location: location,
@@ -379,6 +412,13 @@ document.addEventListener('DOMContentLoaded', () => {
     stressReduced.textContent = `${impact.respiratory_stress_index_reduction}%`;
 
     communityScalingText.innerHTML = `If 100 families in your neighborhood adopt these routines, your community will abate <strong>${impact.annualized_community_co2_savings_kg.toLocaleString()} kg of CO2e</strong> annually while eliminating tens of millions of micrograms of inhaled toxins.`;
+
+    // Programmatic focus management for keyboard and screen-reader navigation
+    const summaryCard = document.getElementById('ai-summary-card');
+    if (summaryCard) {
+      summaryCard.setAttribute('tabindex', '-1');
+      summaryCard.focus();
+    }
   }
 
   // =========================================================================

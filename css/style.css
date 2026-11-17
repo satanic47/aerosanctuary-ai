@@ -377,6 +377,17 @@ body {
   margin-bottom: 12px;
   width: 100%;
 }
+.form-error-msg {
+  background: #fee2e2;
+  color: #b91c1c; /* Contrast ratio 7.4:1 against #fee2e2 (WCAG AAA) */
+  border: 1px solid #f87171;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  width: 100%;
+}
 .form-group {
   display: flex;
   flex-direction: column;

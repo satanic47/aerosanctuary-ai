@@ -99,11 +99,13 @@
           </h2>
           <p class="card-subtitle">Generate a low-emission routine and indoor defense plan specifically for your family.</p>
 
-          <form id="profile-form" aria-label="Household Environmental Profile">
+          <form id="profile-form" aria-label="Household Environmental Profile" novalidate>
+            <div id="profile-form-error" class="form-error-msg" role="alert" aria-live="assertive" style="display: none;"></div>
+
             <div class="form-row">
               <div class="form-group">
                 <label for="input-location">Urban Location / Metro City</label>
-                <select id="input-location" name="location" class="form-control" required>
+                <select id="input-location" name="location" class="form-control" aria-describedby="profile-form-error" required>
                   <option value="Delhi-NCR" selected>Delhi-NCR (High Smog)</option>
                   <option value="Chandigarh">Chandigarh (Moderate/Severe)</option>
                   <option value="Mumbai">Mumbai (Coastal Moderate)</option>
@@ -141,7 +143,7 @@
 
               <div class="form-group">
                 <label for="input-km">Daily Roundtrip Commute Distance (km)</label>
-                <input type="number" id="input-km" name="km" class="form-control" value="18" min="0" max="150" step="1" required>
+                <input type="number" id="input-km" name="km" class="form-control" value="18" min="0" max="200" step="1" aria-describedby="profile-form-error" required>
               </div>
             </div>
 
