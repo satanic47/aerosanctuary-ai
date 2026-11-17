@@ -388,6 +388,11 @@ body {
   margin-bottom: 12px;
   width: 100%;
 }
+
+.form-error-msg:empty,
+.form-error-msg.hidden {
+  display: none;
+}
 .form-group {
   display: flex;
   flex-direction: column;

@@ -234,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!location) {
       if (errorBox) {
         errorBox.textContent = 'Please select or provide a valid metro city location.';
+        errorBox.classList.remove('hidden');
         errorBox.style.display = 'block';
       }
       locationInput.setAttribute('aria-invalid', 'true');
@@ -244,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isNaN(km) || km < 0 || km > 200) {
       if (errorBox) {
         errorBox.textContent = 'Please enter a valid roundtrip commute distance between 0 and 200 km.';
+        errorBox.classList.remove('hidden');
         errorBox.style.display = 'block';
       }
       kmInput.setAttribute('aria-invalid', 'true');
@@ -254,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clear validation errors
     if (errorBox) {
       errorBox.textContent = '';
+      errorBox.classList.add('hidden');
       errorBox.style.display = 'none';
     }
     locationInput.setAttribute('aria-invalid', 'false');
