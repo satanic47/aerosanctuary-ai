@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AeroSanctuary AI - GenAI-powered urban air quality, winter smog mitigation, and community health assistant.">
+  <meta name="theme-color" content="#0d9488">
+  <title>AeroSanctuary AI | Urban Air Quality & Winter Smog Assistant</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">🍃</div>
+        <div class="brand-text">
+          <span class="brand-title">AeroSanctuary <span class="badge-ai">AI</span></span>
+          <span class="brand-tagline">Urban Winter Smog & Community Health Sentinel</span>
+        </div>
+      </div>
+      <nav class="nav-links" role="navigation" aria-label="Main Navigation">
+        <a href="#aqi-monitor" class="nav-link active">Live AQI</a>
+        <a href="#profile-config" class="nav-link">Personalize Plan</a>
+        <a href="#indoor-hacks" class="nav-link">IAQ Hacks</a>
+        <a href="#impact-ledger" class="nav-link">Impact Ledger</a>
+        <a href="#ai-consultant" class="nav-link">AI Advisory</a>
+      </nav>
+      <div class="header-status">
+        <span class="status-indicator online" aria-hidden="true"></span>
+        <span class="status-text" id="system-status-text">GenAI Engine Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Landmark -->
+  <main id="main-content" class="container main-layout" role="main">
+
+    <!-- Hero / Live Smog Alert Banner -->
+    <section id="aqi-monitor" class="hero-section" role="region" aria-labelledby="hero-heading">
+      <div class="hero-card">
+        <div class="hero-header">
+          <div class="location-badge">
+            <span class="badge-icon" aria-hidden="true">📍</span>
+            <span id="current-city-label">Delhi-NCR, India</span>
+          </div>
+          <span id="inversion-status-badge" class="inversion-badge active">
+            ⚠️ Winter Thermal Inversion Active
+          </span>
+        </div>
+
+        <div class="aqi-metrics-grid">
+          <div class="aqi-display">
+            <span class="aqi-number" id="aqi-value" aria-label="Current Air Quality Index 382">382</span>
+            <div class="aqi-meta">
+              <span class="aqi-label">Air Quality Index (AQI)</span>
+              <span class="aqi-severity-tag severe" id="aqi-severity">Hazardous / Severe</span>
+            </div>
+          </div>
+
+          <div class="pollutants-list">
+            <div class="pollutant-item">
+              <span class="pol-name">PM2.5 (Fine Particulate)</span>
+              <span class="pol-val" id="pm25-val">315.4 <small>µg/m³</small></span>
+              <span class="pol-sub">12.6x WHO Safe Limit</span>
+            </div>
+            <div class="pollutant-item">
+              <span class="pol-name">PM10 (Coarse Inhalable)</span>
+              <span class="pol-val" id="pm10-val">460.0 <small>µg/m³</small></span>
+              <span class="pol-sub">Alveolar Irritant</span>
+            </div>
+            <div class="pollutant-item">
+              <span class="pol-name">Safest Outdoor Window</span>
+              <span class="pol-val highlight" id="safe-window-val">12:30 PM - 03:30 PM</span>
+              <span class="pol-sub">Midday Solar Inversion Breakup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two-Column Interactive Workspace -->
+    <div class="workspace-grid">
+
+      <!-- Left Column: Profile & Tailored Action Plan -->
+      <section class="workspace-column left" role="region" aria-labelledby="plan-heading">
+        
+        <!-- Profile Configuration Form -->
+        <div id="profile-config" class="card config-card">
+          <h2 id="plan-heading" class="card-title">
+            <span class="title-icon" aria-hidden="true">⚙️</span>
+            1. Tailor to Your Household & Lifestyle
+          </h2>
+          <p class="card-subtitle">Generate a low-emission routine and indoor defense plan specifically for your family.</p>
+
+          <form id="profile-form" aria-label="Household Environmental Profile">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="input-location">Urban Location / Metro City</label>
+                <select id="input-location" name="location" class="form-control" required>
+                  <option value="Delhi-NCR" selected>Delhi-NCR (High Smog)</option>
+                  <option value="Chandigarh">Chandigarh (Moderate/Severe)</option>
+                  <option value="Mumbai">Mumbai (Coastal Moderate)</option>
+                  <option value="Lahore">Lahore (Severe Winter Inversion)</option>
+                  <option value="Beijing">Beijing (Monitored)</option>
+                  <option value="New York">New York (Low Baseline)</option>
+                  <option value="London">London (Low/Moderate)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="input-household">Household Vulnerability Group</label>
+                <select id="input-household" name="household" class="form-control" required>
+                  <option value="family_with_kids" selected>Family with Children (Pediatric Care)</option>
+                  <option value="elderly_residents">Elderly Members (Cardiopulmonary Risk)</option>
+                  <option value="asthma_respiratory_vulnerable">Asthma / Bronchial Vulnerable</option>
+                  <option value="individual">Single Working Individual</option>
+                  <option value="pet_owners">Pet Owners (Domestic Animals)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="input-commute">Daily Commute Modality</label>
+                <select id="input-commute" name="commute" class="form-control" required>
+                  <option value="ice_car" selected>Petrol / Diesel Car (Single Occupancy)</option>
+                  <option value="motorcycle_scooter">Motorcycle / Petrol Scooter</option>
+                  <option value="metro_public_transit">Metro / Electric Bus</option>
+                  <option value="electric_vehicle">Electric Car (EV)</option>
+                  <option value="shared_carpool">Shared Carpool (3+ Persons)</option>
+                  <option value="remote_wfh">Remote / Work From Home</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="input-km">Daily Roundtrip Commute Distance (km)</label>
+                <input type="number" id="input-km" name="km" class="form-control" value="18" min="0" max="150" step="1" required>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-generate-plan" class="btn btn-primary" aria-label="Generate AI-Powered Air Quality Plan">
+              <span>🚀 Generate Tailored Smog Action Plan</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- AI Executive Summary Output -->
+        <article id="ai-summary-card" class="card ai-synthesis-card" role="article" aria-labelledby="synthesis-heading">
+          <div class="ai-badge">
+            <span class="sparkle-icon" aria-hidden="true">✨</span> GenAI Synthesis
+          </div>
+          <h3 id="synthesis-heading" class="synthesis-title">Executive Environmental Briefing</h3>
+          <p id="ai-summary-text" class="synthesis-body">
+            In Delhi-NCR, active winter thermal inversion is trapping dangerous surface PM2.5 levels (315.4 µg/m³). By realigning your 18.0 km transit routine to low-emission modes and deploying low-cost indoor filtration, your household will avoid inhaling 612.8 µg of toxic particulates daily while directly abating 2.95 kg of CO2e.
+          </p>
+        </article>
+
+        <!-- Chronological Daily Routine Schedule -->
+        <div class="card routine-card">
+          <h3 class="card-title">
+            <span class="title-icon" aria-hidden="true">🕒</span>
+            Low-Emission & Health-Protective Daily Schedule
+          </h3>
+          <p class="card-subtitle">Timing outdoor movement away from temperature inversion spikes minimizes direct alveolar lung damage.</p>
+          <div id="routine-list" class="routine-timeline" role="list">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: IAQ Hacks, Impact Ledger & Chat -->
+      <section class="workspace-column right" role="region" aria-labelledby="hacks-heading">
+
+        <!-- Direct Impact Ledger Card -->
+        <div id="impact-ledger" class="card impact-card" role="region" aria-labelledby="ledger-heading">
+          <h3 id="ledger-heading" class="card-title">
+            <span class="title-icon" aria-hidden="true">📊</span>
+            Your Direct Quantified Impact Ledger
+          </h3>
+          <p class="card-subtitle">Real emissions averted and health damage prevented through your choices today:</p>
+
+          <div class="impact-metrics-grid">
+            <div class="impact-tile green">
+              <span class="tile-number" id="metric-pm25-avoided">612.8 <small>µg</small></span>
+              <span class="tile-title">PM2.5 Inhalation Avoided</span>
+              <span class="tile-note">Deep alveolar lung defense</span>
+            </div>
+
+            <div class="impact-tile blue">
+              <span class="tile-number" id="metric-cigs-avoided">1.5 <small>cigs</small></span>
+              <span class="tile-title">Passive Cigarette Equiv.</span>
+              <span class="tile-note">Berkeley Earth empirical model</span>
+            </div>
+
+            <div class="impact-tile emerald">
+              <span class="tile-number" id="metric-co2-saved">2.95 <small>kg</small></span>
+              <span class="tile-title">Daily CO2e Abated</span>
+              <span class="tile-note">Vehicle tailpipe avoidance</span>
+            </div>
+
+            <div class="impact-tile purple">
+              <span class="tile-number" id="metric-stress-reduced">68.4%</span>
+              <span class="tile-title">Respiratory Stress Cut</span>
+              <span class="tile-note">Inflammatory risk curtailed</span>
+            </div>
+          </div>
+
+          <div class="community-scaling-box">
+            <strong>🏘️ Community Multiplier:</strong>
+            <p id="community-scaling-text">If 100 families in your neighborhood adopt these routines, your community will abate <strong>107,675 kg of CO2e</strong> annually while eliminating tens of millions of micrograms of inhaled toxins.</p>
+          </div>
+        </div>
+
+        <!-- Curated Indoor Air Quality (IAQ) Hacks -->
+        <div id="indoor-hacks" class="card hacks-card">
+          <h3 id="hacks-heading" class="card-title">
+            <span class="title-icon" aria-hidden="true">💡</span>
+            Indoor Air Quality (IAQ) Hacks & DIY Filtration
+          </h3>
+          <p class="card-subtitle">Scientifically validated, low-cost alternatives to expensive commercial air purifiers.</p>
+
+          <div class="hacks-tabs" role="tablist" aria-label="Hack Categories">
+            <button role="tab" aria-selected="true" class="hack-tab active" data-cat="all">All Solutions</button>
+            <button role="tab" aria-selected="false" class="hack-tab" data-cat="diy_filtration">DIY Purifiers</button>
+            <button role="tab" aria-selected="false" class="hack-tab" data-cat="botanical">NASA Plants</button>
+            <button role="tab" aria-selected="false" class="hack-tab" data-cat="ventilation_timing">Ventilation Timing</button>
+            <button role="tab" aria-selected="false" class="hack-tab" data-cat="source_control">Dust Abatement</button>
+          </div>
+
+          <div id="hacks-container" class="hacks-accordion" role="region">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- Interactive GenAI Environmental Advisory Chat -->
+        <div id="ai-consultant" class="card chat-card" role="region" aria-labelledby="chat-heading">
+          <h3 id="chat-heading" class="card-title">
+            <span class="title-icon" aria-hidden="true">💬</span>
+            Consult AeroSanctuary GenAI Assistant
+          </h3>
+          <p class="card-subtitle">Ask questions about infant safety, DIY air purifiers, or mask filtration standards.</p>
+
+          <div id="chat-messages" class="chat-thread" role="log" aria-live="polite" aria-label="Chat conversation history">
+            <div class="chat-msg assistant">
+              <span class="sender-name">AeroSanctuary AI</span>
+              <p>Hello! I am your urban air quality and winter smog advisor. Ask me anything about tailoring low-emission routines, building a DIY Corsi-Rosenthal filter, or protecting vulnerable family members during thermal inversion peaks.</p>
+            </div>
+          </div>
+
+          <form id="chat-form" class="chat-input-bar" aria-label="Send message to AI assistant">
+            <label for="chat-input-text" class="sr-only">Type your question</label>
+            <input type="text" id="chat-input-text" class="form-control" placeholder="e.g. Is it safe to take my toddler out at 8 AM?" required autocomplete="off">
+            <button type="submit" id="btn-send-chat" class="btn btn-secondary" aria-label="Submit message">Send</button>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Accessible Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>AeroSanctuary AI</strong> — Built for <em>Virtual: PromptWars Challenge 6</em>.</p>
+        <p>Empowering urban communities with GenAI-driven atmospheric health intelligence and verified low-emission practices.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/docs" target="_blank" rel="noopener">Interactive API Docs (FastAPI)</a>
+        <a href="https://github.com/satanic47" target="_blank" rel="noopener">GitHub Repository</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
