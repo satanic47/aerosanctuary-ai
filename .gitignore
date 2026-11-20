@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+
+# Pytest & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Operating System & IDEs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Media & Video Generation Artifacts (Keep GitHub Repo Strictly < 10 MB)
+*.mp4
+*.mp3
+*.wav
+*.avi
+temp_video/
+video_assets/
+scripts/
+
